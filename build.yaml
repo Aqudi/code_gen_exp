@@ -9,5 +9,5 @@ builders:
     import: "package:code_gen_exp/builder.dart"
     builder_factories: ["pageBuilder"]
     build_extensions: { ".dart": [".g.dart"] }
-    auto_apply: root_package
+    auto_apply: dependents
     build_to: source

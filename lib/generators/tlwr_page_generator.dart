@@ -16,26 +16,33 @@ class TLWRPageGenerator extends GeneratorForAnnotation<TLWRPage> {
 
     print("tlwr page generator");
     print("//$className//$path//");
+
     final visitor = PageVisitor();
+    element.visitChildren(visitor);
+
     final classBuffer = StringBuffer();
 
     // 5
-    classBuffer.writeln('class $className extends ${visitor.className} {');
+    final newClassName = "${className}Addon";
+    classBuffer.writeln('class $newClassName {');
 
-    classBuffer.writeln('Map<String, dynamic> variables = {};');
+    // routeName을 className을 기준으로 생성합니다.
+    classBuffer.writeln('String get routeName => \'/$className\';');
 
-    classBuffer.writeln('$className() {');
+    // classBuffer.writeln('Map<String, dynamic> variables = {};');
 
-    for (final field in visitor.fields.keys) {
-      // remove '_' from private variables
-      final variable =
-          field.startsWith('_') ? field.replaceFirst('_', '') : field;
+    // classBuffer.writeln('$className() {');
 
-      classBuffer.writeln("variables['${variable}'] = super.$field;");
-    }
+    // for (final field in visitor.fields.keys) {
+    //   // remove '_' from private variables
+    //   final variable =
+    //       field.startsWith('_') ? field.replaceFirst('_', '') : field;
 
-    classBuffer.writeln('}');
-    generateGettersAndSetters(visitor, classBuffer);
+    //   classBuffer.writeln("variables['${variable}'] = super.$field;");
+    // }
+
+    // classBuffer.writeln('}');
+    // generateGettersAndSetters(visitor, classBuffer);
     classBuffer.writeln('}');
     return classBuffer.toString();
   }
