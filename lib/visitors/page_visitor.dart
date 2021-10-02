@@ -3,7 +3,7 @@ import 'package:analyzer/dart/element/element.dart';
 
 class PageVisitor extends SimpleElementVisitor<void> {
   // 2
-  late String className;
+  String? className;
   final fields = <String, dynamic>{};
 
   // 3
