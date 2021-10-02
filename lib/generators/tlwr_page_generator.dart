@@ -14,7 +14,7 @@ class TLWRPageGenerator extends GeneratorForAnnotation<TLWRPage> {
     // return optionOfLabel.fold(() => "//$className\n//$path\n//",
     //     (label) => "//$className\n//$path\n//${label.stringValue}");
 
-    print("tlwr page generator");
+    print("tlwr page generator updated");
     print("//$className//$path//");
 
     final visitor = PageVisitor();

@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 // part 'home_page.g.dart';
 
 @TLWRPage()
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class MySecondPage extends StatefulWidget {
+  const MySecondPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MySecondPage> createState() => _MySecondPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MySecondPageState extends State<MySecondPage> {
   int _counter = 0;
 
   void _incrementCounter() {
